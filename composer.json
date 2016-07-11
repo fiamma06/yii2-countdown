@@ -1,0 +1,20 @@
+{
+    "name": "fiamma06/yii2-countdown",
+    "description": "Yii2 countdown plugin",
+    "keywords": ["yii2", "countdown", "timer", "time"],
+    "homepage": "https://github.com/fiamma06/yii2-countdown",
+    "authors": [
+        {
+            "name": "Kistsen Aliaksandr",
+            "email": "kistenalex@gmail.com"
+        }
+    ],
+    "require": {
+        "bower-asset/kbwood_countdown" : "2.0.*",
+    },
+    "autoload": {
+        "psr-4": {
+            "fiamma06\\countdown\\": "src"
+        }
+    }
+}
