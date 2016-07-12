@@ -2,8 +2,9 @@
 
 namespace fiamma06\countdown;
 
-use frontend\assets\CountDownAsset;
-use yii\base\Widget;
+use fiamma06\countdown\CountDownAsset;
+use yii\bootstrap\Html;
+use yii\bootstrap\Widget;
 use yii\helpers\Json;
 
 /**
@@ -20,22 +21,12 @@ class CountDownWidget extends Widget
     /**
      * @var string
      */
-    public $format = 'HMS';
-
-    /**
-     * @var string
-     */
-    public $layout = '{hnn}{sep}{mnn}{sep}{snn}';
-
-    /**
-     * @var string
-     */
-    public $onExpire = 'function() {}';
+    public $tag = 'span';
 
     /**
      * @var array
      */
-    public $otherOptions = [];
+    public $pluginOptions = [];
 
     /**
      * @inheritdoc
@@ -45,15 +36,12 @@ class CountDownWidget extends Widget
         $view = $this->getView();
         CountDownAsset::register($view);
 
-        $options = [
-            'until' => $this->until,
-            'format' => $this->format,
-            'layout' => $this->layout,
-            'onExpire' => $this->onExpire
-        ];
+        echo Html::tag($this->tag, '', $this->options);
 
-        if(!empty($this->otherOptions)) {
-            $options = array_merge($options, $this->otherOptions);
+        $options = ['until' => $this->until];
+
+        if(!empty($this->pluginOptions)) {
+            $options = array_merge($options, $this->pluginOptions);
         }
 
         $options = Json::encode($options);
