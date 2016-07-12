@@ -10,8 +10,8 @@ use yii\helpers\Json;
  * Class CountDownWidget
  * @package fiamma06\countdown
  */
-class CountDownWidget extends Widget {
-
+class CountDownWidget extends Widget
+{
     /**
      * @var
      */
