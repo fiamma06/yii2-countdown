@@ -17,7 +17,7 @@
         }
     ],
     "require": {
-        "bower-asset/kbwood_countdown" : "2.0.*"
+        "bower-asset/kbwood_countdown" : "dev-master"
     },
     "autoload": {
         "psr-4": {
