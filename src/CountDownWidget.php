@@ -4,6 +4,7 @@ namespace fiamma06\countdown;
 
 use frontend\assets\CountDownAsset;
 use yii\base\Widget;
+use yii\helpers\Json;
 
 /**
  * Class CountDownWidget
@@ -32,9 +33,9 @@ class CountDownWidget extends Widget {
     public $onExpire = 'function() {}';
 
     /**
-     * @var string
+     * @var array
      */
-    public $lang = 'en';
+    public $otherOptions = [];
 
     /**
      * @inheritdoc
@@ -44,14 +45,19 @@ class CountDownWidget extends Widget {
         $view = $this->getView();
         CountDownAsset::register($view);
 
-        $view->registerJs("
-            $('#{$this->getId()}').countdown({
-                until: {$this->until},
-                format: '{$this->format}',
-                layout: '{$this->layout}',
-                onExpire: {$this->onExpire}
-            });
-        ");
+        $options = [
+            'until' => $this->until,
+            'format' => $this->format,
+            'layout' => $this->layout,
+            'onExpire' => $this->onExpire
+        ];
+
+        if(!empty($this->otherOptions)) {
+            $options = array_merge($options, $this->otherOptions);
+        }
+
+        $options = Json::encode($options);
+        $view->registerJs("$('#{$this->getId()}').countdown({$options});");
     }
 
 }
