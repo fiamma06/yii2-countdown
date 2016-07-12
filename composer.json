@@ -9,6 +9,13 @@
             "email": "kistenalex@gmail.com"
         }
     ],
+    "repositories": [
+        {
+            "type": "git",
+            "url": "git@github.com:fiamma06/countdown.git",
+            "packagist": false
+        }
+    ],
     "require": {
         "bower-asset/kbwood_countdown" : "2.0.*"
     },

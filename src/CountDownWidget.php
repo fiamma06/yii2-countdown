@@ -45,7 +45,8 @@ class CountDownWidget extends Widget
         }
 
         $options = Json::encode($options);
-        $view->registerJs("$('#{$this->getId()}').countdown({$options});");
+        $view->registerJs(" $('#{$this->getId()}').countdown({$options}); ");
+//        $view->registerJs("$.countdown.resync();");
     }
 
 }
