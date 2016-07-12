@@ -27,4 +27,11 @@ class CountDownAsset extends AssetBundle
         'jquery.plugin.js',
         'jquery.countdown.js',
     ];
+
+    /**
+     * @var array
+     */
+    public $depends = [
+        'yii\web\JqueryAsset',
+    ];
 }
